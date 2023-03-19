@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <img [src]="imgPrefix+movieDetails?.poster_path" class="img-fluid" alt="">
+        </div>
+        <div class="col-md-8">
+            <h2>{{movieDetails?.title}}{{movieDetails?.name}}</h2>
+            <p class="text-muted my-3">{{movieDetails?.tagline}}</p>
+            <span *ngFor="let gen of movieDetails?.genres" class="p-1 my-3 mr-2 rounded bg-info">{{gen.name}}</span>
+            
+            <p class="my-3 h5">Vote Average :<span class="text-muted">{{" "+movieDetails?.vote_average}}</span></p>
+            <p class="my-3 h5 overview">overview : <span class="text-muted">{{" "+movieDetails?.overview}}</span></p>
+
+            <p class="my-3 h5 overview">Status : <span class="text-muted">{{" "+movieDetails?.status}}</span></p>
+            <p class="my-3 h5 overview">Release date : <span class="text-muted">{{" "+movieDetails?.release_date}}</span></p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,63 @@
+<div class="container">
+
+    <div class="py-4">    
+        <input class="form-control w-50 m-auto" [(ngModel)]='term' placeholder="Searh Movie .."/>
+    </div>
+
+<div class="row mt-3">
+
+    <!-- trendingMovies -->
+    <div class="col-md-4">
+        <div class="brdr w-25 my-2"></div>
+        <h2>
+            Trending<br>
+            Movies<br>
+            To Watch Now
+        </h2>
+        <div class="brdr w-100 my-2"></div>
+    </div>
+
+
+    <div *ngFor="let movie of trendingMovies|search:term" class="col-md-2 position-relative">
+        <div [routerLink]="['/movieDetails' ,movie.media_type, movie.id ]" class="movie">
+            <img [src]="imgPrefix+movie.poster_path" class="w-100" alt="">
+            <h3 class="h6 my-2">{{movie.title}}</h3>
+            <div class="vote">{{movie.vote_average}}</div>
+            <!-- <h3 class="h6 my-2">{{movie.id|currency:'EUR'}}</h3> -->
+            <!-- <h3 class="h6 my-2">{{movie.overview|seemore:100}}</h3> -->
+
+        </div>
+    </div>
+
+</div>
+
+        <!-- trendingTv -->
+<div class="row my-3">
+
+        <div class="col-md-4">
+            <div class="brdr w-25 my-2"></div>
+            <h2>
+                Trending<br>
+                Tv Shows<br>
+                To Watch Now
+            </h2>
+            <div class="brdr w-100 my-2"></div>
+        </div>
+    
+        <div *ngFor="let movie of trendingTv" class="col-md-2 position-relative">
+            <div [routerLink]="['/movieDetails' ,movie.media_type, movie.id ]" class="movie">
+                <img [src]="imgPrefix+movie.poster_path" class="w-100" alt="">
+                <h3 class="h6 my-2">{{movie.name|watchs}}</h3>
+                <div class="vote">{{movie.vote_average}}</div>
+            </div>
+        </div>
+</div>
+
+
+
+
+
+
+
+
+</div>

@@ -1,0 +1,26 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@1,500&display=swap');
+$bgColor:#131722;
+$fontColor:#fff;
+$socendFontColor:#949cb0;
+$bgColor2: teal;
+$baColor3: gray;
+
+
+
+body{
+    background-color: $bgColor ;
+    color:$fontColor;
+    font-family: 'Montserrat Alternates' , sans-serif ;
+}
+.vote{
+    position: absolute;
+    top:0;
+    right:10px;
+    background-color: $bgColor2;
+    padding:8px;
+}
+.brdr{
+    height: 1px;
+    background-color: $baColor3;
+}

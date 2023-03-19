@@ -1,0 +1,26 @@
+
+<form class="w-75 m-auto">
+
+    <div [formGroup]="loginForm"  class="form-group">
+        <label>E-mail:</label>
+        <input formControlName='email'[class.is-valid]="loginForm.get('email').errors == null && 
+        loginForm.get('email').touched" type="text" class="form-control">
+        <p *ngIf="loginForm.get('email').errors != null && loginForm.get('email').touched"
+        class="text-danger">E-mail is invalid </p>
+    </div>
+
+    <div [formGroup]="loginForm" class="form-group">
+        <label>Password :</label>
+        <input formControlName='password' [class.is-valid]="loginForm.get('password').errors == null && 
+        loginForm.get('password').touched" type="text" class="form-control">
+        <p *ngIf="loginForm.get('password').errors != null && loginForm.get('password').touched"
+        class="text-danger">Password is invalid </p>
+    </div>
+
+    <div *ngIf="flag" class="alert alert-danger">
+        {{errorMessage}}
+    </div>
+
+    <button [disabled]="loginForm.invalid" (click)="getLoginInfo(loginForm)" type="submit" class="btn btn-primary" >Login</button>
+
+</form>

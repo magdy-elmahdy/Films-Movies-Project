@@ -1,0 +1,40 @@
+<div *ngIf="flag"
+ class="alert alert-danger w-50 m-auto text-center" >
+    <span>this E-mail is already registered</span>
+</div>
+
+<form class="w-75 m-auto">
+    <div [formGroup]="registerForm"  class="form-group">
+        <label>Fist name :</label>
+        <input formControlName='first_name' [class.is-valid]="registerForm.get('first_name').errors == null && 
+        registerForm.get('first_name').touched"
+         type="text" class="form-control">
+        <p *ngIf="registerForm.get('first_name').errors != null && registerForm.get('first_name').touched"
+        class="text-danger">first Name is invalid </p>
+    </div>
+
+    <div [formGroup]="registerForm" class="form-group">
+        <label>Last name :</label>
+        <input formControlName='last_name'[class.is-valid]="registerForm.get('last_name').errors == null && 
+        registerForm.get('last_name').touched" type="text" class="form-control">
+        <p *ngIf="registerForm.get('last_name').errors != null && registerForm.get('last_name').touched"
+        class="text-danger">Last Name is invalid </p>
+    </div>
+
+    <div [formGroup]="registerForm"  class="form-group">
+        <label>E-mail:</label>
+        <input formControlName='email'[class.is-valid]="registerForm.get('email').errors == null && 
+        registerForm.get('email').touched" type="text" class="form-control">
+        <p *ngIf="registerForm.get('email').errors != null && registerForm.get('email').touched"
+        class="text-danger">E-mail is invalid </p>
+    </div>
+
+    <div [formGroup]="registerForm" class="form-group">
+        <label>Password :</label>
+        <input formControlName='password' [class.is-valid]="registerForm.get('password').errors == null && 
+        registerForm.get('password').touched" type="text" class="form-control">
+        <p *ngIf="registerForm.get('password').errors != null && registerForm.get('password').touched"
+        class="text-danger">Password is invalid </p>
+    </div>
+   <button [disabled]="registerForm.invalid" (click)="getRegisterInfo(registerForm)" type="submit" class="btn btn-primary" >Register</button>
+</form>
